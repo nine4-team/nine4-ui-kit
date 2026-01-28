@@ -6,7 +6,8 @@
   "files": ["dist", "src", "README.md"],
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "prepublishOnly": "npm run build",
+    "build:publish": "npx -y typescript@^5.7.2 tsc -p tsconfig.json",
+    "prepublishOnly": "npm run build:publish",
     "test": "npm run test:unit",
     "test:unit": "jest"
   },
