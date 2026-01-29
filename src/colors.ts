@@ -193,7 +193,7 @@ export const lightTheme: ColorTheme = {
   border: {
     primary: '#ddd',
     secondary: '#e0e0e0',
-    focus: BRAND_PRIMARY,
+    focus: '#000',
   },
   tabBar: {
     background: '#F9F9F9',
@@ -228,7 +228,8 @@ export const lightTheme: ColorTheme = {
     border: '#ddd',
     borderError: '#c00',
     text: '#333',
-    placeholder: '#999',
+    // Tailwind gray-400
+    placeholder: '#9CA3AF',
   },
   shadow: '#000',
   divider: '#e0e0e0',
@@ -293,7 +294,7 @@ export const darkTheme: ColorTheme = {
   border: {
     primary: '#4A4A4C',
     secondary: '#4A4A4C',
-    focus: BRAND_PRIMARY,
+    focus: '#fff',
   },
   tabBar: {
     // Keep chrome aligned with the primary screen container in dark mode
@@ -329,7 +330,8 @@ export const darkTheme: ColorTheme = {
     border: '#4A4A4C',
     borderError: '#EF5350',
     text: '#E0E0E0',
-    placeholder: '#888',
+    // Tailwind gray-400
+    placeholder: '#9CA3AF',
   },
   shadow: '#000',
   divider: '#4A4A4C',
