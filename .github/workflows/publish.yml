@@ -26,5 +26,14 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Verify npm auth token present
+        run: |
+          if [ -z "${NODE_AUTH_TOKEN:-}" ]; then
+            echo "Missing NODE_AUTH_TOKEN. Add a GitHub Actions secret named NPM_TOKEN with publish access to @nine4, then re-run."
+            exit 1
+          fi
+
       - name: Publish (trusted publishing)
         run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

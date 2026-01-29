@@ -230,3 +230,39 @@ In consuming apps, prefer a single adapter (e.g. `createThemeFromUIKit()`) that 
 npm install
 npm run build
 ```
+
+## Publishing
+
+This package is published to npm as `@nine4/ui-kit`.
+
+### GitHub Actions (recommended)
+
+Publishing is triggered by pushing a semver tag like `v0.2.2`.
+
+- Create a GitHub Actions secret named **`NPM_TOKEN`** containing an npm **granular** access token with permission to publish `@nine4/ui-kit`.
+- If the `@nine4` org requires 2FA to publish, the token must have **bypass 2FA** enabled.
+
+Then:
+
+```
+npm version patch
+git push origin main --follow-tags
+```
+
+### Manual publish (local)
+
+If you have npm 2FA requirements enabled, the easiest manual path is typically interactive login:
+
+```
+npm login
+npm publish --access public
+```
+
+Or publish non-interactively using a granular token stored in `.env`:
+
+```
+cp .env.example .env
+# edit .env and set NPM_TOKEN=...
+set -a && source .env && set +a
+npm publish --access public
+```
