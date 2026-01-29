@@ -1,6 +1,7 @@
 import { ViewStyle } from 'react-native';
 import type { ColorTheme } from './colors';
 import { Platform } from 'react-native';
+import { SCREEN_PADDING } from './spacing';
 
 /**
  * Get card border style (standardized border width and color)
@@ -99,6 +100,35 @@ export function getScreenContainerStyle(theme: ColorTheme): ViewStyle {
   return {
     flex: 1,
     backgroundColor: theme.background.screen,
+  };
+}
+
+/**
+ * Get screen content (gutter) style.
+ *
+ * Use this for `contentContainerStyle` on `ScrollView` / `FlatList`, or as a wrapper
+ * style around full-width content like forms, lists, and cards.
+ *
+ * Why: prevents accidental full-bleed inputs/cards with no left/right padding.
+ */
+export interface ScreenContentStyleOptions {
+  insets?: SafeAreaInsets;
+  paddingHorizontal?: number;
+  paddingTop?: number;
+  paddingBottom?: number;
+}
+
+export function getScreenContentStyle(
+  options: ScreenContentStyleOptions = {}
+): ViewStyle {
+  const insets = options.insets;
+  const gutter = options.paddingHorizontal ?? SCREEN_PADDING;
+
+  return {
+    paddingLeft: insets ? Math.max(insets.left, gutter) : gutter,
+    paddingRight: insets ? Math.max(insets.right, gutter) : gutter,
+    paddingTop: options.paddingTop ?? 0,
+    paddingBottom: options.paddingBottom ?? 0,
   };
 }
 

@@ -34,8 +34,24 @@ export interface ColorTheme {
     badgeText: string;
   };
 
-  // Primary UI colors (grayscale - NO BLUE)
+  /**
+   * Brand accent color.
+   *
+   * Use for primary buttons, links, focus rings, tabs, etc.
+   */
   primary: {
+    main: string;
+    light: string;
+    dark: string;
+  };
+
+  /**
+   * Neutral/grayscale ramp.
+   *
+   * This is the "black/gray scale" that used to live under `primary.*`.
+   * Use for grayscale UI when you do NOT want the brand accent.
+   */
+  neutral: {
     main: string;
     light: string;
     dark: string;
@@ -124,12 +140,14 @@ export interface ColorTheme {
   link: string;
 }
 
+const BRAND_PRIMARY = '#987e55';
+
 export const lightTheme: ColorTheme = {
   status: {
     met: {
       background: '#F5F3EF',
-      text: '#987e55',
-      bar: '#987e55',
+      text: BRAND_PRIMARY,
+      bar: BRAND_PRIMARY,
       barComplete: '#4A7C59',
       barOverflow: '#34C77C',
     },
@@ -145,6 +163,11 @@ export const lightTheme: ColorTheme = {
     },
   },
   primary: {
+    main: BRAND_PRIMARY,
+    light: BRAND_PRIMARY,
+    dark: BRAND_PRIMARY,
+  },
+  neutral: {
     main: '#000',
     light: '#666',
     dark: '#111',
@@ -170,17 +193,17 @@ export const lightTheme: ColorTheme = {
   border: {
     primary: '#ddd',
     secondary: '#e0e0e0',
-    focus: '#000',
+    focus: BRAND_PRIMARY,
   },
   tabBar: {
     background: '#F9F9F9',
-    activeTint: '#987e55',
+    activeTint: BRAND_PRIMARY,
     inactiveTint: '#999',
     border: '#e0e0e0',
   },
   button: {
     primary: {
-      background: '#987e55',
+      background: BRAND_PRIMARY,
       text: '#fff',
     },
     secondary: {
@@ -197,7 +220,7 @@ export const lightTheme: ColorTheme = {
     },
     icon: {
       background: '#F5F3EF',
-      icon: '#987e55',
+      icon: BRAND_PRIMARY,
     },
   },
   input: {
@@ -209,8 +232,8 @@ export const lightTheme: ColorTheme = {
   },
   shadow: '#000',
   divider: '#e0e0e0',
-  activityIndicator: '#000',
-  link: '#000',
+  activityIndicator: BRAND_PRIMARY,
+  link: BRAND_PRIMARY,
   archive: {
     background: '#ffebee',
     text: '#d32f2f',
@@ -223,8 +246,8 @@ export const darkTheme: ColorTheme = {
   status: {
     met: {
       background: '#3D3224',
-      text: '#987e55',
-      bar: '#987e55',
+      text: BRAND_PRIMARY,
+      bar: BRAND_PRIMARY,
       barComplete: '#4A7C59',
       barOverflow: '#3DD598',
     },
@@ -240,6 +263,11 @@ export const darkTheme: ColorTheme = {
     },
   },
   primary: {
+    main: BRAND_PRIMARY,
+    light: BRAND_PRIMARY,
+    dark: BRAND_PRIMARY,
+  },
+  neutral: {
     main: '#fff',
     light: '#B0B0B0',
     dark: '#000',
@@ -265,18 +293,18 @@ export const darkTheme: ColorTheme = {
   border: {
     primary: '#4A4A4C',
     secondary: '#4A4A4C',
-    focus: '#fff',
+    focus: BRAND_PRIMARY,
   },
   tabBar: {
     // Keep chrome aligned with the primary screen container in dark mode
     background: '#1E1E1E',
-    activeTint: '#987e55',
+    activeTint: BRAND_PRIMARY,
     inactiveTint: '#888',
     border: '#4A4A4C',
   },
   button: {
     primary: {
-      background: '#987e55',
+      background: BRAND_PRIMARY,
       text: '#fff',
     },
     secondary: {
@@ -293,7 +321,7 @@ export const darkTheme: ColorTheme = {
     },
     icon: {
       background: '#3D3224',
-      icon: '#987e55',
+      icon: BRAND_PRIMARY,
     },
   },
   input: {
@@ -305,8 +333,8 @@ export const darkTheme: ColorTheme = {
   },
   shadow: '#000',
   divider: '#4A4A4C',
-  activityIndicator: '#fff',
-  link: '#fff',
+  activityIndicator: BRAND_PRIMARY,
+  link: BRAND_PRIMARY,
   archive: {
     background: '#3E1E1E',
     text: '#EF5350',

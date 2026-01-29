@@ -9,7 +9,8 @@
     "declarationMap": true,
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "typeRoots": ["./types", "./node_modules/@types"]
   },
   "include": ["src"]
 }
