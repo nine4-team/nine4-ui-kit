@@ -1,9 +1,13 @@
 {
   "name": "@nine4/ui-kit",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist", "src", "README.md"],
+  "files": [
+    "dist",
+    "src",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "build:publish": "npx -y -p typescript@^5.7.2 tsc -p tsconfig.json",
